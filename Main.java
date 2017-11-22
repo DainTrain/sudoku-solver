@@ -4,12 +4,12 @@ public class Main {
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome to the Sudoku solver. Please enter one line of the puzzle at a time.");
-		System.out.println("Separate the numbers using commas; Use zero for empty spaces.");
+		System.out.println("Separate the numbers using commas; Use the number zero (0) for empty spaces.");
 		Scanner keyboard = new Scanner(System.in);
 		
-		int line = 0;
 		Board board = new Board();
 		
+		int line = 0;
 		while (line<9) {
 			String inputLine = keyboard.nextLine();
 			String[] stringArr = inputLine.split(",");
@@ -60,6 +60,8 @@ public class Main {
 			
 			board.quadrantAlgorithm();
 			board.rowAndColAlgorithm();
+			
+			//TEST: if the board size doesn't change then I exit because it's not working!!
 			if (board.getSize() == tempSize)
 				board.setSize(999);
 			board.display();
